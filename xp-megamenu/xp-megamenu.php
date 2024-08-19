@@ -6,23 +6,23 @@ Description: XpertTheme MegaMenu
 Author: Xperttheme
 Version: 1.0.0
 Author URI: https://themeforest.net/user/xpertpoin8/portfolio
-Text Domain: ova-megamenu
+Text Domain: xp-megamenu
 */
 
 if ( !defined( 'ABSPATH' ) ) exit();
 
 /**
- * OVA_MEGAMENU Class
+ * XP_MEGAMENU Class
  */
 
-if( !class_exists( 'OVA_MEGAMENU' ) ){
+if( !class_exists( 'XP_MEGAMENU' ) ){
 
-	final class OVA_MEGAMENU{
+	final class XP_MEGAMENU{
 
 		private static $_instance = null;
 		
 		/**
-		 * OVA_MEGAMENU Constructor
+		 * XP_MEGAMENU Constructor
 		 */
 
 		public function __construct(){
@@ -35,9 +35,9 @@ if( !class_exists( 'OVA_MEGAMENU' ) ){
 		 * Define constants
 		 */
 		public function define_constants(){
-			$this->define( 'OVA_MEGAMENU_PLUGIN_FILE', __FILE__ );
-			$this->define( 'OVA_MEGAMENU_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
-			$this->define( 'OVA_MEGAMENU_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
+			$this->define( 'XP_MEGAMENU_PLUGIN_FILE', __FILE__ );
+			$this->define( 'XP_MEGAMENU_PLUGIN_URI', plugin_dir_url( __FILE__ ) );
+			$this->define( 'XP_MEGAMENU_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 		}
 
 		private function define( $name, $value ) {
@@ -53,14 +53,14 @@ if( !class_exists( 'OVA_MEGAMENU' ) ){
 
 		public function includes(){
 
-			require_once( OVA_MEGAMENU_PLUGIN_PATH.'/inc/class-assets.php' );
-   			require_once( OVA_MEGAMENU_PLUGIN_PATH.'/inc/class-process.php' );	
+			require_once( XP_MEGAMENU_PLUGIN_PATH.'/inc/class-assets.php' );
+   			require_once( XP_MEGAMENU_PLUGIN_PATH.'/inc/class-process.php' );	
 			
 		}
 
 
 		/**
-		 * Main Ova Events Manager Instance.
+		 * Main Xp Events Manager Instance.
 		 */
 		public static function instance() {
 			if ( !empty( self::$_instance ) ) {
@@ -76,10 +76,10 @@ if( !class_exists( 'OVA_MEGAMENU' ) ){
 
 
 /**
- * Main instance of Ova Events Manager
+ * Main instance of Xp Events Manager
  */
-function OVA_MEGAMENU() {
-	return OVA_MEGAMENU::instance();
+function XP_MEGAMENU() {
+	return XP_MEGAMENU::instance();
 }
 
-$GLOBALS['OVA_MEGAMENU'] = OVA_MEGAMENU();
+$GLOBALS['XP_MEGAMENU'] = XP_MEGAMENU();

@@ -1,16 +1,16 @@
 (function($){
     "use strict";
 
-        if (typeof(OVA_MegaMenu) == "undefined") {
-            var OVA_MegaMenu = {}; 
+        if (typeof(XP_MegaMenu) == "undefined") {
+            var XP_MegaMenu = {}; 
         }
 
-        OVA_MegaMenu.init = function(){
+        XP_MegaMenu.init = function(){
             this.FrontEnd.init();
         }
         
         /* Metabox */
-        OVA_MegaMenu.FrontEnd = {
+        XP_MegaMenu.FrontEnd = {
 
             init: function(){
                 this.megamenu();  
@@ -43,11 +43,11 @@
         }  
 
     $(document).ready(function(){
-        OVA_MegaMenu.init();
+        XP_MegaMenu.init();
     });
 
     $(window).resize(function(){
-        OVA_MegaMenu.FrontEnd.megamenu(); 
+        XP_MegaMenu.FrontEnd.megamenu(); 
     });
 
 })(jQuery);

@@ -21,14 +21,14 @@
     	$thumbnail   =  \Elementor\Utils::get_placeholder_image_src();
     }
 
-	$class_icon  = get_post_meta( $id, 'ova_sev_met_icon', true );
+	$class_icon  = get_post_meta( $id, 'xp_sev_met_icon', true );
 	$title       = get_the_title();
 	$description = get_the_excerpt();
 	$show_des    = isset($args['show_description']) ? $args['show_description'] : 'yes';
 
 ?>
 
-	<div class="xp-service-box ova-service-box-template3">
+	<div class="xp-service-box xp-service-box-template3">
 
 	    <div class="img-service">	
 	    	<img src="<?php echo esc_attr( $thumbnail ) ; ?>" alt="<?php echo esc_attr( $title ); ?>">

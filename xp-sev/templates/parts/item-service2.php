@@ -15,7 +15,7 @@
 	}
     
     // content
-	$class_icon  = get_post_meta( $id, 'ova_sev_met_icon', true );
+	$class_icon  = get_post_meta( $id, 'xp_sev_met_icon', true );
 	$title       = get_the_title();
 	$description = get_the_excerpt();
 	$show_des    = isset($args['show_description']) ? $args['show_description'] : 'yes';
@@ -30,7 +30,7 @@
 ?>
 	
 
-    <div class="xp-service-box ova-service-box-template2">
+    <div class="xp-service-box xp-service-box-template2">
     
         <?php if ( $background_image != '' ) : ?> 
 		    <div class="mask" style="background-image: url(<?php echo esc_attr( $background_image ) ; ?>)"></div>

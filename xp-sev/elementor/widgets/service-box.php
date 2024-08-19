@@ -9,16 +9,16 @@ use Elementor\Utils;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-class Ovasev_Elementor_Service_Box extends Widget_Base {
+class Xpsev_Elementor_Service_Box extends Widget_Base {
 
 	
 	public function get_name() {
-		return 'ovasev_elementor_service_box';
+		return 'xpsev_elementor_service_box';
 	}
 
 	
 	public function get_title() {
-		return esc_html__( 'Service Box', 'ova-sev' );
+		return esc_html__( 'Service Box', 'xp-sev' );
 	}
 
 	
@@ -28,7 +28,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 
 	
 	public function get_categories() {
-		return [ 'ovasev' ];
+		return [ 'xpsev' ];
 	}
 
 	public function get_script_depends() {
@@ -41,7 +41,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => esc_html__( 'Content', 'ova-sev' ),
+				'label' => esc_html__( 'Content', 'xp-sev' ),
 			]
 		);	
 
@@ -50,14 +50,14 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'template',
 				[
-					'label' => esc_html__( 'Template', 'ova-sev' ),
+					'label' => esc_html__( 'Template', 'xp-sev' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'template2',
 					'options' => [
-						'template1' => esc_html__('Template 1', 'ova-sev'),
-						'template2' => esc_html__('Template 2', 'ova-sev'),
-						'template3' => esc_html__('Template 3', 'ova-sev'),
-						'template4' => esc_html__('Template 4', 'ova-sev'),
+						'template1' => esc_html__('Template 1', 'xp-sev'),
+						'template2' => esc_html__('Template 2', 'xp-sev'),
+						'template3' => esc_html__('Template 3', 'xp-sev'),
+						'template4' => esc_html__('Template 4', 'xp-sev'),
 					]
 				]
 			);
@@ -65,12 +65,12 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'link',
 				[
-					'label' => esc_html__( 'Link', 'ova-sev' ),
+					'label' => esc_html__( 'Link', 'xp-sev' ),
 					'type' => \Elementor\Controls_Manager::SELECT,
 					'default' => 'default',
 					'options' => [
-						'default'  	=> esc_html__( 'Default', 'ova-sev' ),
-						'new_page' 	=> esc_html__( 'New Page', 'ova-sev' ),
+						'default'  	=> esc_html__( 'Default', 'xp-sev' ),
+						'new_page' 	=> esc_html__( 'New Page', 'xp-sev' ),
 					],
 				]
 			);
@@ -78,9 +78,9 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'custom_link',
 				[
-					'label' 		=> esc_html__( 'Custom Link', 'ova-sev' ),
+					'label' 		=> esc_html__( 'Custom Link', 'xp-sev' ),
 					'type' 			=> \Elementor\Controls_Manager::URL,
-					'placeholder' 	=> esc_html__( 'https://your-link.com', 'ova-sev' ),
+					'placeholder' 	=> esc_html__( 'https://your-link.com', 'xp-sev' ),
 					'dynamic' 		=> [
 						'active' => true,
 					],
@@ -98,16 +98,16 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'number_column',
 				[
-					'label' => esc_html__( 'Column', 'ova-sev' ),
+					'label' => esc_html__( 'Column', 'xp-sev' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'three_column',
 					'options' => [
-						'one_column' => esc_html__('Single Column', 'ova-sev'),
-						'two_column' => esc_html__('2 Column', 'ova-sev'),
-						'three_column' => esc_html__('3 Column', 'ova-sev'),
-						'four_column' => esc_html__('4 Column', 'ova-sev'),
-						'five_column' => esc_html__('5 Column', 'ova-sev'),
-						'six_column' => esc_html__('6 Column', 'ova-sev'),
+						'one_column' => esc_html__('Single Column', 'xp-sev'),
+						'two_column' => esc_html__('2 Column', 'xp-sev'),
+						'three_column' => esc_html__('3 Column', 'xp-sev'),
+						'four_column' => esc_html__('4 Column', 'xp-sev'),
+						'five_column' => esc_html__('5 Column', 'xp-sev'),
+						'six_column' => esc_html__('6 Column', 'xp-sev'),
 					]
 				]
 			);
@@ -120,20 +120,20 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 
 			$categories  	= get_categories($args);
 			$cate_array 	= array();
-			$arrayCateAll 	= array( 'all' => esc_html__( 'All categories', 'ova-sev' ) );
+			$arrayCateAll 	= array( 'all' => esc_html__( 'All categories', 'xp-sev' ) );
 			
 			if ($categories) {
 				foreach ( $categories as $cate ) {
 					$cate_array[$cate->slug] = $cate->cat_name;
 				}
 			} else {
-				$cate_array[ esc_html__( 'No content Category found', 'ova-sev' ) ] = 0;
+				$cate_array[ esc_html__( 'No content Category found', 'xp-sev' ) ] = 0;
 			}
 
 			$this->add_control(
 				'category',
 				[
-					'label' 	=> esc_html__( 'Category', 'ova-sev' ),
+					'label' 	=> esc_html__( 'Category', 'xp-sev' ),
 					'type' 		=> Controls_Manager::SELECT,
 					'default' 	=> 'all',
 					'options' 	=> array_merge($arrayCateAll,$cate_array),
@@ -143,7 +143,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'post_per_page',
 				[
-					'label'   => esc_html__( 'Post Per Page', 'ova-sev' ),
+					'label'   => esc_html__( 'Post Per Page', 'xp-sev' ),
 					'type'    => Controls_Manager::NUMBER,
 					'min'     => 1,
 					'default' => 3
@@ -153,14 +153,14 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'order_by',
 				[
-					'label'   => esc_html__( 'Order By', 'ova-sev' ),
+					'label'   => esc_html__( 'Order By', 'xp-sev' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'date',
 					'options' => [
-						'title' 	=> esc_html__( 'Title', 'ova-sev' ),
-						'date' 		=> esc_html__( 'Date', 'ova-sev' ),
-						'ID' 		=> esc_html__( 'ID', 'ova-sev' ),
-						'ova_sev_met_order_sev'  => esc_html__( 'Custom Order', 'ova-sev' ),		
+						'title' 	=> esc_html__( 'Title', 'xp-sev' ),
+						'date' 		=> esc_html__( 'Date', 'xp-sev' ),
+						'ID' 		=> esc_html__( 'ID', 'xp-sev' ),
+						'xp_sev_met_order_sev'  => esc_html__( 'Custom Order', 'xp-sev' ),		
 					],
 				]
 			);
@@ -168,12 +168,12 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'order',
 				[
-					'label'   => esc_html__( 'Order', 'ova-sev' ),
+					'label'   => esc_html__( 'Order', 'xp-sev' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'DESC',
 					'options' => [
-						'DESC' => esc_html__( 'Descending', 'ova-sev' ),
-						'ASC'  => esc_html__( 'Ascending', 'ova-sev' ),
+						'DESC' => esc_html__( 'Descending', 'xp-sev' ),
+						'ASC'  => esc_html__( 'Ascending', 'xp-sev' ),
 					],
 				]
 			);
@@ -181,9 +181,9 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'text_button',
 				[
-					'label'   => esc_html__( 'Text Button', 'ova-sev' ),
+					'label'   => esc_html__( 'Text Button', 'xp-sev' ),
 					'type'    => Controls_Manager::TEXT,
-					'default' => esc_html__( 'Book Now', 'ova-sev' ),
+					'default' => esc_html__( 'Book Now', 'xp-sev' ),
 					'condition' => [
 						'template' => 'template1'
 					]
@@ -208,7 +208,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_service_box_style',
 			[
-				'label' => esc_html__( 'Service box', 'ova-sev' ),
+				'label' => esc_html__( 'Service box', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -216,7 +216,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		    $this->add_control(
 				'background_image',
 				[
-					'label'   => esc_html__( 'Background Image', 'ova-sev' ),
+					'label'   => esc_html__( 'Background Image', 'xp-sev' ),
 					'type'    => \Elementor\Controls_Manager::MEDIA,
 					'condition' => [
 						'template' => ['template1','template2']
@@ -227,7 +227,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'bgcolor_service_box',
 				[
-					'label' => esc_html__( 'Background Color', 'ova-sev' ),
+					'label' => esc_html__( 'Background Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box' => 'background-color : {{VALUE}};',
@@ -238,7 +238,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'bgcolor_service_box_hover',
 				[
-					'label' => esc_html__( 'Background Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Background Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box:hover' => 'background-color : {{VALUE}};',
@@ -249,7 +249,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'boder_service_box_hover',
 				[
-					'label' => esc_html__( 'Border Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Border Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box:hover' => 'border-color : {{VALUE}};',
@@ -260,7 +260,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'padding_service_box',
 				[
-					'label' => esc_html__( 'Padding', 'ova-sev' ),
+					'label' => esc_html__( 'Padding', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -272,7 +272,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'border_radius_service_box',
 				[
-					'label' => esc_html__( 'Border Radius', 'ova-sev' ),
+					'label' => esc_html__( 'Border Radius', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -285,7 +285,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 				\Elementor\Group_Control_Box_Shadow::get_type(),
 				[
 					'name' => 'box_shadow',
-					'label' => esc_html__( 'Box Shadow', 'ova-sev' ),
+					'label' => esc_html__( 'Box Shadow', 'xp-sev' ),
 					'selector' => '{{WRAPPER}} .xp-service-box-elementor .xp-service-box',
 				]
 			);
@@ -296,7 +296,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_image_style',
 			[
-				'label' => esc_html__( 'Image', 'ova-sev' ),
+				'label' => esc_html__( 'Image', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'template' => ['template1','template3']
@@ -307,7 +307,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
             $this->add_control(
 				'image_size',
 				[
-					'label' => esc_html__( 'Size', 'ova-sev' ),
+					'label' => esc_html__( 'Size', 'xp-sev' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -328,7 +328,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'image_height',
 				[
-					'label' => esc_html__( 'Height', 'ova-sev' ),
+					'label' => esc_html__( 'Height', 'xp-sev' ),
 					'type' => Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -349,7 +349,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'image_border_radius',
 				[
-					'label' => esc_html__( 'Border Radius', 'ova-sev' ),
+					'label' => esc_html__( 'Border Radius', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -364,7 +364,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_icon_style',
 			[
-				'label' => esc_html__( 'Icon', 'ova-sev' ),
+				'label' => esc_html__( 'Icon', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -372,7 +372,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
             $this->add_control(
 				'icon_size',
 				[
-					'label' => esc_html__( 'Icon Size', 'ova-sev' ),
+					'label' => esc_html__( 'Icon Size', 'xp-sev' ),
 					'type' 	=> Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -390,7 +390,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'icon_color',
 				[
-					'label' => esc_html__( 'Icon Color', 'ova-sev' ),
+					'label' => esc_html__( 'Icon Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box .icon i' => 'color : {{VALUE}};',
@@ -401,7 +401,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'bgcolor_icon',
 				[
-					'label' => esc_html__( 'Background Color', 'ova-sev' ),
+					'label' => esc_html__( 'Background Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box-template1 .img-service .icon' => 'background-color : {{VALUE}};',
@@ -418,7 +418,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_service_style',
 			[
-				'label' => esc_html__( 'Title', 'ova-sev' ),
+				'label' => esc_html__( 'Title', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -470,7 +470,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'color_title_service',
 				[
-					'label' => esc_html__( 'Color', 'ova-sev' ),
+					'label' => esc_html__( 'Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box .title' => 'color : {{VALUE}};',
@@ -481,7 +481,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'color_title_service_hover',
 				[
-					'label' => esc_html__( 'Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box:hover .title' => 'color : {{VALUE}};',
@@ -492,7 +492,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'padding_title_service',
 				[
-					'label' => esc_html__( 'Padding', 'ova-sev' ),
+					'label' => esc_html__( 'Padding', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -504,7 +504,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'margin_title_service',
 				[
-					'label' => esc_html__( 'Margin', 'ova-sev' ),
+					'label' => esc_html__( 'Margin', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -519,7 +519,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_description_service_style',
 			[
-				'label' => esc_html__( 'Description', 'ova-sev' ),
+				'label' => esc_html__( 'Description', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
 					'show_description' => 'yes'
@@ -574,7 +574,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'color_description_service',
 				[
-					'label' => esc_html__( 'Color', 'ova-sev' ),
+					'label' => esc_html__( 'Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box .description' => 'color : {{VALUE}};',
@@ -585,7 +585,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'color_description_service_hover',
 				[
-					'label' => esc_html__( 'Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box:hover .description' => 'color : {{VALUE}};',
@@ -596,7 +596,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'padding_description_service',
 				[
-					'label' => esc_html__( 'Padding', 'ova-sev' ),
+					'label' => esc_html__( 'Padding', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -608,7 +608,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_responsive_control(
 				'margin_description_service',
 				[
-					'label' => esc_html__( 'Margin', 'ova-sev' ),
+					'label' => esc_html__( 'Margin', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -623,7 +623,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 		$this->start_controls_section(
 			'section_button_style',
 			[
-				'label' => esc_html__( 'Button', 'ova-sev' ),
+				'label' => esc_html__( 'Button', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 				'condition' => [
                 	'template' => 'template1',
@@ -634,7 +634,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
             $this->add_control(
 				'icon_button_size',
 				[
-					'label' 		=> esc_html__( 'Icon Size', 'ova-sev' ),
+					'label' 		=> esc_html__( 'Icon Size', 'xp-sev' ),
 					'type' 			=> Controls_Manager::SLIDER,
 					'range' => [
 						'px' => [
@@ -660,7 +660,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'button_color',
 				[
-					'label' => esc_html__( 'Color', 'ova-sev' ),
+					'label' => esc_html__( 'Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box .book-button' => 'color : {{VALUE}};',
@@ -671,7 +671,7 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 			$this->add_control(
 				'button_color_hover',
 				[
-					'label' => esc_html__( 'Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-box-elementor .xp-service-box .book-button:hover' => 'color : {{VALUE}};',
@@ -686,13 +686,13 @@ class Ovasev_Elementor_Service_Box extends Widget_Base {
 	protected function render() {
 
 		$settings       = $this->get_settings();
-		$template       = apply_filters( 'el_ovasev_service_box', 'elementor/service-box.php' );
+		$template       = apply_filters( 'el_xpsev_service_box', 'elementor/service-box.php' );
 
 		ob_start();
-		ovasev_get_template( $template, $settings );
+		xpsev_get_template( $template, $settings );
 		echo ob_get_clean();
 	}
 	
 }
 
-$widgets_manager->register( new Ovasev_Elementor_Service_Box() );
+$widgets_manager->register( new Xpsev_Elementor_Service_Box() );

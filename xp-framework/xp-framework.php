@@ -7,52 +7,52 @@ Version:  1.0.2
 Author: Xperttheme
 Author URI: https://themeforest.net/user/xperttheme
 License:  GPL2
-Text Domain: ova-framework
+Text Domain: xp-framework
 Domain Path: /languages 
 */
 
-if (!function_exists('OvaFramework')) {
+if (!function_exists('XpFramework')) {
 
-    class OvaFramework {
+    class XpFramework {
 
     	
         function __construct() {
 
-            if (!defined('OVA_PLUGIN_PATH')) {
-                define( 'OVA_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );   
+            if (!defined('XP_PLUGIN_PATH')) {
+                define( 'XP_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );   
             }
-            if (!defined('OVA_PLUGIN_URI')) {
-                define( 'OVA_PLUGIN_URI', plugin_dir_url( __FILE__ ) ); 
+            if (!defined('XP_PLUGIN_URI')) {
+                define( 'XP_PLUGIN_URI', plugin_dir_url( __FILE__ ) ); 
             }
 
-            load_plugin_textdomain( 'ova-framework', false, basename( dirname( __FILE__ ) ) .'/languages' );
+            load_plugin_textdomain( 'xp-framework', false, basename( dirname( __FILE__ ) ) .'/languages' );
             
 
             /* Custom Post Type */
-            include OVA_PLUGIN_PATH.'inc/class-hf-builder.php';
+            include XP_PLUGIN_PATH.'inc/class-hf-builder.php';
 
             // Metabox
-            include OVA_PLUGIN_PATH.'inc/class-metaboxes.php';
+            include XP_PLUGIN_PATH.'inc/class-metaboxes.php';
         
 
-            add_action( 'admin_enqueue_scripts', array( $this, 'ova_admin_scripts' ) );
+            add_action( 'admin_enqueue_scripts', array( $this, 'xp_admin_scripts' ) );
 
             // Share Social in Single Post
-            add_filter( 'ova_share_social', array( $this, 'spalisho_content_social' ), 2, 10 );
+            add_filter( 'xp_share_social', array( $this, 'spalisho_content_social' ), 2, 10 );
 
-            add_filter( 'upload_mimes', array( $this, 'ova_upload_mimes' ), 1, 10);
+            add_filter( 'upload_mimes', array( $this, 'xp_upload_mimes' ), 1, 10);
 
             add_filter( 'widget_text', 'do_shortcode' );
 
             // Shortcode
-            include OVA_PLUGIN_PATH.'inc/class-shortcode.php';
+            include XP_PLUGIN_PATH.'inc/class-shortcode.php';
             
         }
         
-        function ova_admin_scripts() {
+        function xp_admin_scripts() {
 
-            wp_enqueue_script( 'script', OVA_PLUGIN_URI. 'assets/js/admin/script.js', array('jquery'), null, true );
-            wp_enqueue_style( 'style', OVA_PLUGIN_URI. 'assets/css/admin/style.css', array(), null );
+            wp_enqueue_script( 'script', XP_PLUGIN_URI. 'assets/js/admin/script.js', array('jquery'), null, true );
+            wp_enqueue_style( 'style', XP_PLUGIN_URI. 'assets/css/admin/style.css', array(), null );
             
              
         }
@@ -72,7 +72,7 @@ if (!function_exists('OvaFramework')) {
             return $html;
         }
 
-        public function ova_upload_mimes($mimes){
+        public function xp_upload_mimes($mimes){
             $mimes['svg'] = 'image/svg+xml';
             return $mimes;
         }
@@ -81,4 +81,4 @@ if (!function_exists('OvaFramework')) {
     }
 }
 
-return new OvaFramework();
+return new XpFramework();

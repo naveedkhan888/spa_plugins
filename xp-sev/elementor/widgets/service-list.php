@@ -8,16 +8,16 @@ use Elementor\Utils;
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
 
-class Ovasev_Elementor_Service_List extends Widget_Base {
+class Xpsev_Elementor_Service_List extends Widget_Base {
 
 	
 	public function get_name() {
-		return 'ovasev_elementor_service_list';
+		return 'xpsev_elementor_service_list';
 	}
 
 	
 	public function get_title() {
-		return esc_html__( 'Service List', 'ova-sev' );
+		return esc_html__( 'Service List', 'xp-sev' );
 	}
 
 	
@@ -27,7 +27,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 
 	
 	public function get_categories() {
-		return [ 'ovasev' ];
+		return [ 'xpsev' ];
 	}
 
 	public function get_script_depends() {
@@ -40,7 +40,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_content',
 			[
-				'label' => esc_html__( 'Content', 'ova-sev' ),
+				'label' => esc_html__( 'Content', 'xp-sev' ),
 			]
 		);	
 				
@@ -49,12 +49,12 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'template',
 				[
-					'label' => esc_html__( 'Template', 'ova-sev' ),
+					'label' => esc_html__( 'Template', 'xp-sev' ),
 					'type' => Controls_Manager::SELECT,
 					'default' => 'template1',
 					'options' => [
-						'template1' => esc_html__('Template 1', 'ova-sev'),
-						'template2' => esc_html__('Template 2', 'ova-sev'),
+						'template1' => esc_html__('Template 1', 'xp-sev'),
+						'template2' => esc_html__('Template 2', 'xp-sev'),
 					]
 				]
 			);
@@ -62,7 +62,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'posts_per_page',
 				[
-					'label'   => esc_html__( 'Post Per Page', 'ova-sev' ),
+					'label'   => esc_html__( 'Post Per Page', 'xp-sev' ),
 					'type'    => Controls_Manager::NUMBER,
 					'min'     => 1,
 					'default' => 5
@@ -72,13 +72,13 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'order_by',
 				[
-					'label'   => esc_html__( 'Order By', 'ova-sev' ),
+					'label'   => esc_html__( 'Order By', 'xp-sev' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'date',
 					'options' => [
-						'title' => esc_html__( 'Title', 'ova-sev' ),
-						'date' 	=> esc_html__( 'Date', 'ova-sev' ),
-						'ID' 	=> esc_html__( 'ID', 'ova-sev' ),			
+						'title' => esc_html__( 'Title', 'xp-sev' ),
+						'date' 	=> esc_html__( 'Date', 'xp-sev' ),
+						'ID' 	=> esc_html__( 'ID', 'xp-sev' ),			
 					],
 				]
 			);
@@ -86,12 +86,12 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'order',
 				[
-					'label'   => esc_html__( 'Order', 'ova-sev' ),
+					'label'   => esc_html__( 'Order', 'xp-sev' ),
 					'type'    => Controls_Manager::SELECT,
 					'default' => 'DESC',
 					'options' => [
-						'DESC' => esc_html__( 'Descending', 'ova-sev' ),
-						'ASC'  => esc_html__( 'Ascending', 'ova-sev' ),
+						'DESC' => esc_html__( 'Descending', 'xp-sev' ),
+						'ASC'  => esc_html__( 'Ascending', 'xp-sev' ),
 					],
 				]
 			);
@@ -99,10 +99,10 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'target_blank',
 				[
-					'label' 		=> esc_html__( 'Target Blank', 'ova-sev' ),
+					'label' 		=> esc_html__( 'Target Blank', 'xp-sev' ),
 					'type' 			=> Controls_Manager::SWITCHER,
-					'label_on' 		=> esc_html__( 'Yes', 'ova-sev' ),
-					'label_off' 	=> esc_html__( 'No', 'ova-sev' ),
+					'label_on' 		=> esc_html__( 'Yes', 'xp-sev' ),
+					'label_off' 	=> esc_html__( 'No', 'xp-sev' ),
 					'default' 		=> 'no',
 				]
 			);
@@ -110,11 +110,11 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'title_limit',
 				[
-					'label'   		=> esc_html__( 'Title Limit', 'ova-sev' ),
+					'label'   		=> esc_html__( 'Title Limit', 'xp-sev' ),
 					'type'    		=> Controls_Manager::NUMBER,
 					'min'     		=> -1,
 					'default' 		=> 10,
-					'description' 	=> esc_html__( 'Limit words to display "Title Service"', 'ova-sev' ),
+					'description' 	=> esc_html__( 'Limit words to display "Title Service"', 'xp-sev' ),
 				]
 			);
 
@@ -124,7 +124,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_service_list_style',
 			[
-				'label' => esc_html__( 'Service List', 'ova-sev' ),
+				'label' => esc_html__( 'Service List', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -132,7 +132,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'bgcolor_service_list',
 				[
-					'label' => esc_html__( 'Background Color', 'ova-sev' ),
+					'label' => esc_html__( 'Background Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-list li.item a' => 'background-color : {{VALUE}};',
@@ -143,7 +143,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'bgcolor_service_list_hover',
 				[
-					'label' => esc_html__( 'Background Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Background Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-list li.item a:hover' => 'background-color : {{VALUE}};',
@@ -154,7 +154,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_responsive_control(
 				'padding_service_list',
 				[
-					'label' => esc_html__( 'Padding', 'ova-sev' ),
+					'label' => esc_html__( 'Padding', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -166,7 +166,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_responsive_control(
 				'margin_service_list',
 				[
-					'label' => esc_html__( 'Margin', 'ova-sev' ),
+					'label' => esc_html__( 'Margin', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -178,7 +178,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_responsive_control(
 				'border_radius_service_list',
 				[
-					'label' => esc_html__( 'Border Radius', 'ova-sev' ),
+					'label' => esc_html__( 'Border Radius', 'xp-sev' ),
 					'type' => Controls_Manager::DIMENSIONS,
 					'size_units' => [ 'px', 'em', '%' ],
 					'selectors' => [
@@ -193,7 +193,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 		$this->start_controls_section(
 			'section_title_service_style',
 			[
-				'label' => esc_html__( 'Service Title', 'ova-sev' ),
+				'label' => esc_html__( 'Service Title', 'xp-sev' ),
 				'tab' => Controls_Manager::TAB_STYLE,
 			]
 		);
@@ -223,7 +223,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'color_title_service',
 				[
-					'label' => esc_html__( 'Color', 'ova-sev' ),
+					'label' => esc_html__( 'Color', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-list .service-title-list li.item a' => 'color : {{VALUE}};',
@@ -234,7 +234,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 			$this->add_control(
 				'color_title_service_hover',
 				[
-					'label' => esc_html__( 'Color Hover', 'ova-sev' ),
+					'label' => esc_html__( 'Color Hover', 'xp-sev' ),
 					'type' => Controls_Manager::COLOR,
 					'selectors' => [
 						'{{WRAPPER}} .xp-service-list .service-title-list li.item:hover a' => 'color : {{VALUE}};',
@@ -263,7 +263,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 		$target 	    = 'yes' == $settings['target_blank'] ? ' target="_blank"' : '';
 
 		$args_posts = array(
-			'post_type'      => 'ova_sev',
+			'post_type'      => 'xp_sev',
             'post_status'    => 'publish',
             'posts_per_page' => $posts_per_page,
 			'orderby'        => $order_by,
@@ -287,7 +287,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 							$title    = get_the_title( $id );
 							$excerpt  = wp_trim_words( $title, $limit, '' );
 
-							$class_icon = get_post_meta( $id, 'ova_sev_met_icon', true );
+							$class_icon = get_post_meta( $id, 'xp_sev_met_icon', true );
 
 							$categories = get_the_terms( $id, 'cat_sev' );
 							if( $categories ) {
@@ -326,7 +326,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 						                                	echo esc_html( $excerpt ); 
 						                                }
 						                                else { 
-						                                	echo esc_html_e('Untitled', 'ova-sev'); 
+						                                	echo esc_html_e('Untitled', 'xp-sev'); 
 						                                }
 						                            ?>
 												</span>
@@ -339,7 +339,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 					                                	echo esc_html( $excerpt ); 
 					                                }
 					                                else { 
-					                                	echo esc_html_e('Untitled', 'ova-sev'); 
+					                                	echo esc_html_e('Untitled', 'xp-sev'); 
 					                                }
 					                            ?>
 											</span>
@@ -347,7 +347,7 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 									</div>
 									<div class="icon-arrow">
 										<?php if ( $template == 'template1' ): ?>
-			                                <i class="xpicon ovaicon-fast-forward"></i>
+			                                <i class="xpicon xpicon-fast-forward"></i>
 			                            <?php else: ?>
 			                            	<i aria-hidden="true" class="fas fa-arrow-right"></i>
 			                            <?php endif;?>
@@ -368,4 +368,4 @@ class Ovasev_Elementor_Service_List extends Widget_Base {
 	
 }
 
-$widgets_manager->register( new Ovasev_Elementor_Service_List() );
+$widgets_manager->register( new Xpsev_Elementor_Service_List() );

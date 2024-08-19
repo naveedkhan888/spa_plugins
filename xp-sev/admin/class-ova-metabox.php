@@ -13,18 +13,18 @@
 
 
 
-add_action( 'cmb2_init', 'ova_sev_metaboxes' );
-function ova_sev_metaboxes() {
+add_action( 'cmb2_init', 'xp_sev_metaboxes' );
+function xp_sev_metaboxes() {
 
     // Start with an underscore to hide fields from custom fields list
-    $prefix = 'ova_sev_met_';
+    $prefix = 'xp_sev_met_';
     
     /* Sev Settings ***************************************************************************/
     /* ************************************************************************************/
     $sev_settings = new_cmb2_box( array(
-        'id'            => 'ovasev_settings',
-        'title'         => esc_html__( 'Service Settings', 'ova-sev' ),
-        'object_types'  => array( 'ova_sev'), // Post type
+        'id'            => 'xpsev_settings',
+        'title'         => esc_html__( 'Service Settings', 'xp-sev' ),
+        'object_types'  => array( 'xp_sev'), // Post type
         'context'       => 'normal',
         'priority'      => 'high',
         'show_names'    => true,
@@ -33,17 +33,17 @@ function ova_sev_metaboxes() {
         
         // icon
         $sev_settings->add_field( array(
-            'name' => esc_html__( 'Service Icon', 'ova-sev' ),
+            'name' => esc_html__( 'Service Icon', 'xp-sev' ),
             'id'   => $prefix . 'icon',
-            'desc' => esc_html__( 'Use in Service Box Element ( Example : flaticon flaticon-massage .You can find here: https://ova-themes.gitbook.io/spalisho/find-icons)', 'ova-sev' ),
+            'desc' => esc_html__( 'Use in Service Box Element ( Example : flaticon flaticon-massage .You can find here: https://xp-themes.gitbook.io/spalisho/find-icons)', 'xp-sev' ),
             'type' => 'text',
         ) );
         
         // sort order
         $sev_settings->add_field( array(
-            'name'    => esc_html__( 'Sort Order', 'ova-sev' ),
+            'name'    => esc_html__( 'Sort Order', 'xp-sev' ),
             'id'      => $prefix . 'order_sev',
-            'desc'    => esc_html__( 'Insert Number', 'ova-sev' ),
+            'desc'    => esc_html__( 'Insert Number', 'xp-sev' ),
             'type'    => 'text',
             'default' =>'1',
         ) );

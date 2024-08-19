@@ -14,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.6.1; wp-5.9.2\n"
-"X-Domain: ova-framework"
+"X-Domain: xp-framework"
 
 #. Description of the plugin
 msgid "A plugin to create custom Post Type, Shortcode, Elementor"

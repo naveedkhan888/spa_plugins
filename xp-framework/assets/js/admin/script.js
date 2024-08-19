@@ -56,7 +56,7 @@ jQuery(document).on('click', '.xp_metabox_gallery a.remove-image', function(e) {
 
 function resetIndex() {
     jQuery('#gallery-metabox-list li').each(function(i) {
-       jQuery(this).find('input:hidden').attr('name', 'ova_met_gallery_id[' + i + ']');
+       jQuery(this).find('input:hidden').attr('name', 'xp_met_gallery_id[' + i + ']');
     });
 }
 

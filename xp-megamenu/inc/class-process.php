@@ -1,7 +1,7 @@
 <?php
 /********** Get value custom menu *************/
-add_filter( 'wp_setup_nav_menu_item', 'ova_megamenu_add_custom_nav_fields' );
-function ova_megamenu_add_custom_nav_fields( $menu_item ) {
+add_filter( 'wp_setup_nav_menu_item', 'xp_megamenu_add_custom_nav_fields' );
+function xp_megamenu_add_custom_nav_fields( $menu_item ) {
 
     $menu_item->menu_column = get_post_meta( $menu_item->ID, '_menu_item_menu_column', true );
 
@@ -14,8 +14,8 @@ function ova_megamenu_add_custom_nav_fields( $menu_item ) {
 }
 
 /********** Save value custom menu *************/
-add_action( 'wp_update_nav_menu_item', 'ova_megamenu_update_custom_nav_fields', 10, 3 );
-function ova_megamenu_update_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
+add_action( 'wp_update_nav_menu_item', 'xp_megamenu_update_custom_nav_fields', 10, 3 );
+function xp_megamenu_update_custom_nav_fields( $menu_id, $menu_item_db_id, $args ) {
     $check = array( 'menu_column',  'menu_height' , 'shortcode_megamenu', 'linkhide' );
 
     foreach ( $check as $key ) {
@@ -33,12 +33,12 @@ function ova_megamenu_update_custom_nav_fields( $menu_id, $menu_item_db_id, $arg
 }
 
 // Render HTML custom edit menu in backend
-add_filter( 'wp_edit_nav_menu_walker', 'ova_megamenu_edit_walker', 10, 2 );
-function ova_megamenu_edit_walker($walker,$menu_id) {
-    return 'Ova_Megamenu_Walker_Nav_Menu_Edit_Custom';
+add_filter( 'wp_edit_nav_menu_walker', 'xp_megamenu_edit_walker', 10, 2 );
+function xp_megamenu_edit_walker($walker,$menu_id) {
+    return 'Xp_Megamenu_Walker_Nav_Menu_Edit_Custom';
 }
 
-class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
+class Xp_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 	function start_lvl( &$output, $depth = 0, $args = array() ) {
     }
 
@@ -109,7 +109,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 								),
 								'move-menu_item'
 							);
-							?>" class="item-move-up"><abbr title="<?php esc_html_e('Move up','ova-megamenu'); ?>">&#8593;</abbr></a>
+							?>" class="item-move-up"><abbr title="<?php esc_html_e('Move up','xp-megamenu'); ?>">&#8593;</abbr></a>
 						|
 						<a href="<?php
 							echo wp_nonce_url(
@@ -122,9 +122,9 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 								),
 								'move-menu_item'
 							);
-							?>" class="item-move-down"><abbr title="<?php esc_html_e('Move down','ova-megamenu'); ?> ">&#8595;</abbr></a>
+							?>" class="item-move-down"><abbr title="<?php esc_html_e('Move down','xp-megamenu'); ?> ">&#8595;</abbr></a>
 					</span>
-					<a class="item-edit" id="edit-<?php echo esc_attr($item_id); ?>" title="<?php esc_html_e('Edit Menu Item','ova-megamenu'); ?>" href="<?php
+					<a class="item-edit" id="edit-<?php echo esc_attr($item_id); ?>" title="<?php esc_html_e('Edit Menu Item','xp-megamenu'); ?>" href="<?php
 						echo ( isset( $_GET['edit-menu-item'] ) && $item_id == $_GET['edit-menu-item'] )
 							? admin_url( 'nav-menus.php' )
 							: add_query_arg( 'edit-menu-item', $item_id,
@@ -135,11 +135,11 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 				</span>
 			</dt>
 			</dl>
-			<div class="menu-item-settings ova-menu-item-settings" id="menu-item-settings-<?php echo esc_attr($item_id); ?>">
+			<div class="menu-item-settings xp-menu-item-settings" id="menu-item-settings-<?php echo esc_attr($item_id); ?>">
 				<?php if( 'custom' == $item->type ) : ?>
 					<p class="description description-wide">
 						<label for="edit-menu-item-url-<?php echo esc_attr($item_id); ?>">
-						<?php esc_html_e('URL','ova-megamenu'); ?><br />
+						<?php esc_html_e('URL','xp-megamenu'); ?><br />
 						<input type="text" id="edit-menu-item-url-<?php echo esc_attr($item_id); ?>" class="widefat code edit-menu-item-url"
 						name="menu-item-url[<?php echo esc_attr($item_id); ?>]"
 						data-name="menu-item-url[<?php echo esc_attr($item_id); ?>]"
@@ -149,7 +149,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 				<?php endif; ?>
 				<p class="description description-wide">
 					<label for="edit-menu-item-title-<?php echo esc_attr($item_id); ?>">
-						<?php esc_html_e('Navigation Label','ova-megamenu'); ?><br />
+						<?php esc_html_e('Navigation Label','xp-megamenu'); ?><br />
 						<input type="text" id="edit-menu-item-title-<?php echo esc_attr($item_id); ?>" class="widefat edit-menu-item-title"
 							   name="menu-item-title[<?php echo esc_attr($item_id); ?>]"
 							   data-name="menu-item-title[<?php echo esc_attr($item_id); ?>]"
@@ -162,12 +162,12 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 							   name="menu-item-target[<?php echo esc_attr($item_id); ?>]"
 							   data-name="menu-item-target[<?php echo esc_attr($item_id); ?>]"
 							<?php checked( $item->target, '_blank' ); ?> />
-						<?php esc_html_e('Open link in a new window/tab','ova-megamenu'); ?>
+						<?php esc_html_e('Open link in a new window/tab','xp-megamenu'); ?>
 					</label>
 				</p>
 				<p class="description description-wide">
 					<label for="edit-menu-item-attr-title-<?php echo esc_attr($item_id); ?>">
-						<?php esc_html_e('Title Attribute','ova-megamenu'); ?><br />
+						<?php esc_html_e('Title Attribute','xp-megamenu'); ?><br />
 						<input type="text" id="edit-menu-item-attr-title-<?php echo esc_attr($item_id); ?>" class="widefat edit-menu-item-attr-title"
 							   name="menu-item-attr-title[<?php echo esc_attr($item_id); ?>]"
 							   data-name="menu-item-attr-title[<?php echo esc_attr($item_id); ?>]"
@@ -176,7 +176,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 				</p>
 				<p class="description description-thin">
 					<label for="edit-menu-item-classes-<?php echo esc_attr($item_id); ?>">
-						<?php esc_html_e('CSS Classes (optional)','ova-megamenu'); ?><br />
+						<?php esc_html_e('CSS Classes (optional)','xp-megamenu'); ?><br />
 						<input type="text" id="edit-menu-item-classes-<?php echo esc_attr($item_id); ?>" class="widefat code edit-menu-item-classes"
 							   name="menu-item-classes[<?php echo esc_attr($item_id); ?>]"
 							   data-name="menu-item-classes[<?php echo esc_attr($item_id); ?>]"
@@ -185,7 +185,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 				</p>
 				<p class="description description-thin">
 					<label for="edit-menu-item-xfn-<?php echo esc_attr($item_id); ?>">
-						<?php esc_html_e('Link Relationship (XFN)','ova-megamenu'); ?><br />
+						<?php esc_html_e('Link Relationship (XFN)','xp-megamenu'); ?><br />
 						<input type="text" id="edit-menu-item-xfn-<?php echo esc_attr($item_id); ?>" class="widefat code edit-menu-item-xfn"
 							   name="menu-item-xfn[<?php echo esc_attr($item_id); ?>]"
 							   data-name="menu-item-xfn[<?php echo esc_attr($item_id); ?>]"
@@ -197,17 +197,17 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 
 					<p class="description description-wide">
 						<label for="edit-menu-item-type-menu-<?php echo esc_attr($item_id); ?>">
-							<?php esc_html_e('Menu Column (for mega menu)','ova-megamenu'); ?><br />
+							<?php esc_html_e('Menu Column (for mega menu)','xp-megamenu'); ?><br />
 							<select id="edit-menu-item-type-menu-<?php echo esc_attr($item_id); ?>"
 									name="menu-item-menu_column[<?php echo esc_attr($item_id); ?>]"
 								data-name="menu-item-menu_column[<?php echo esc_attr($item_id); ?>]"
 								>
 								<option value="" <?php if(esc_attr($item->menu_column) == ""){echo 'selected="selected"';} ?>><?php echo 'Select'; ?></option>
-								<option value="one-column" <?php if(esc_attr($item->menu_column) == "one-column"){echo 'selected="selected"';} ?>><?php esc_html_e('One Column','ova-megamenu'); ?></option>
-								<option value="two-columns" <?php if(esc_attr($item->menu_column) == "two-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Two Columns','ova-megamenu'); ?></option>
-								<option value="three-columns" <?php if(esc_attr($item->menu_column) == "three-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Three Columns','ova-megamenu'); ?></option>
-								<option value="four-columns" <?php if(esc_attr($item->menu_column) == "four-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Four Columns','ova-megamenu'); ?></option>
-								<option value="five-columns" <?php if(esc_attr($item->menu_column) == "five-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Five Columns','ova-megamenu'); ?></option>
+								<option value="one-column" <?php if(esc_attr($item->menu_column) == "one-column"){echo 'selected="selected"';} ?>><?php esc_html_e('One Column','xp-megamenu'); ?></option>
+								<option value="two-columns" <?php if(esc_attr($item->menu_column) == "two-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Two Columns','xp-megamenu'); ?></option>
+								<option value="three-columns" <?php if(esc_attr($item->menu_column) == "three-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Three Columns','xp-megamenu'); ?></option>
+								<option value="four-columns" <?php if(esc_attr($item->menu_column) == "four-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Four Columns','xp-megamenu'); ?></option>
+								<option value="five-columns" <?php if(esc_attr($item->menu_column) == "five-columns"){echo 'selected="selected"';} ?>><?php esc_html_e('Five Columns','xp-megamenu'); ?></option>
 							</select>
 						</label>
 					</p>
@@ -218,7 +218,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 
 					<p class="description description-wide">
 						<label for="edit-menu-item-menu_height-<?php echo esc_attr($item_id); ?>">
-							<?php echo esc_html_e('Menu height (for mega menu). Ex: 830px','ova-megamenu'); ?>	
+							<?php echo esc_html_e('Menu height (for mega menu). Ex: 830px','xp-megamenu'); ?>	
 							<input type="text" id="edit-menu-item-menu_height-<?php echo esc_attr($item_id); ?>" class="widefat code edit-menu-item-menu_height"
 	                                name="menu-item-menu_height[<?php echo esc_attr($item_id); ?>]"
 	                               data-name="menu-item-menu_height[<?php echo esc_attr($item_id); ?>]"
@@ -228,7 +228,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 
 					<p class="shortcode shortcode-wide">
 						<label for="edit-menu-item-shortcode_megamenu-<?php echo esc_attr($item_id); ?>">
-							<?php echo esc_html_e('Shortcode','ova-megamenu'); ?>	
+							<?php echo esc_html_e('Shortcode','xp-megamenu'); ?>	
 							<input type="text" id="edit-menu-item-shortcode_megamenu-<?php echo esc_attr($item_id); ?>" class="widefat code edit-menu-item-shortcode_megamenu"
 	                                name="menu-item-shortcode_megamenu[<?php echo esc_attr($item_id); ?>]"
 	                               data-name="menu-item-shortcode_megamenu[<?php echo esc_attr($item_id); ?>]"
@@ -243,7 +243,7 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 								   name="menu-item-linkhide[<?php echo esc_attr($item_id); ?>]"
 								   data-name="menu-item-linkhide[<?php echo esc_attr($item_id); ?>]"
 								<?php checked( $item->linkhide, 'linkhide' ); ?> />
-							<?php  esc_html_e('Show as a heading','ova-megamenu'); ?>
+							<?php  esc_html_e('Show as a heading','xp-megamenu'); ?>
 						</label>
 					</p>
 				
@@ -288,8 +288,8 @@ class Ova_Megamenu_Walker_Nav_Menu_Edit_Custom extends Walker_Nav_Menu{
 
 
 /*================== If don't choose menu location ===================*/
-if(!function_exists('ova_megamenu_menu_editor')){
-	function ova_megamenu_menu_editor($args){
+if(!function_exists('xp_megamenu_menu_editor')){
+	function xp_megamenu_menu_editor($args){
 		if ( ! current_user_can( 'manage_options' ) ){
 			return;
 		}
@@ -320,8 +320,8 @@ if(!function_exists('ova_megamenu_menu_editor')){
 
 
 // New Render HTML Mega Menu
-if (!class_exists('Ova_Megamenu_Walker_Nav_Menu')) {
-    class Ova_Megamenu_Walker_Nav_Menu extends Walker_Nav_Menu {
+if (!class_exists('Xp_Megamenu_Walker_Nav_Menu')) {
+    class Xp_Megamenu_Walker_Nav_Menu extends Walker_Nav_Menu {
 
 		var $column = '';
 		var $hideli = false;
@@ -372,7 +372,7 @@ if (!class_exists('Ova_Megamenu_Walker_Nav_Menu')) {
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
 			$classes[] = 'menu-item-' . $item->ID;
 			if(!empty($item->menu_column)){
-				$classes[] = 'dropdown ova-megamenu';
+				$classes[] = 'dropdown xp-megamenu';
 			}else{
 				$classes[] = 'dropdown';
 			}

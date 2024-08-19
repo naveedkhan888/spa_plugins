@@ -4,7 +4,7 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class OVASEV_templates_loader {
+class XPSEV_templates_loader {
 	
 	/**
 	 * The Constructor
@@ -23,22 +23,22 @@ class OVASEV_templates_loader {
 			$paged = get_query_var('paged') ? get_query_var('paged') : '1';
 			
 			query_posts( '&cat_sev='.get_query_var( 'cat_sev' ).'&paged=' . $paged );
-			ovasev_get_template( 'archive-sev.php' );
+			xpsev_get_template( 'archive-sev.php' );
 			return false;
 		}
 
 
 		// Is Team Post Type
-		if(  $post_type == 'ova_sev' ){
+		if(  $post_type == 'xp_sev' ){
 
-			if ( is_post_type_archive( 'ova_sev' ) ) { 
+			if ( is_post_type_archive( 'xp_sev' ) ) { 
 
-				ovasev_get_template( 'archive-sev.php' );
+				xpsev_get_template( 'archive-sev.php' );
 				return false;
 
 			} else if ( is_single() ) {
 
-				ovasev_get_template( 'single-sev.php' );
+				xpsev_get_template( 'single-sev.php' );
 				return false;
 
 			}
@@ -49,4 +49,4 @@ class OVASEV_templates_loader {
 	}
 }
 
-new OVASEV_templates_loader();
+new XPSEV_templates_loader();

@@ -4,7 +4,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
     
     class Spalisho_Metaboxes {
 
-        public $prefix = 'ova_met_';
+        public $prefix = 'xp_met_';
 
         public function __construct() {
             
@@ -19,7 +19,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             // General Setting
             add_meta_box(
                 $this->prefix.'general_setting',          // Unique ID
-                esc_html__('General Setting', 'ova-framework'), // Box title
+                esc_html__('General Setting', 'xp-framework'), // Box title
                 array( $this, 'general_setting' ),   // Content callback, must be of type callable
                 apply_filters( 'spalisho_set_header_version' ,array( 'post', 'page' ) )                  // Post type
             );
@@ -27,7 +27,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             // Post Format Setting
             add_meta_box(
                 $this->prefix.'embed_setting',          // Unique ID
-                esc_html__('Embed setting', 'ova-framework'), // Box title
+                esc_html__('Embed setting', 'xp-framework'), // Box title
                 array( $this, 'embed_setting' ),   // Content callback, must be of type callable
                 array( 'post' ),
                 'side', // priority
@@ -38,7 +38,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
 
             add_meta_box(
              $this->prefix.'gallery_setting',
-             esc_html__('Gallery', 'ova-framework'),
+             esc_html__('Gallery', 'xp-framework'),
              array( $this, 'galery_setting' ),
              array( 'post' ),
              'side',
@@ -117,7 +117,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             $list_header = apply_filters('spalisho_list_header', '') != '' ? array_merge( array( 'global' => 'Global' ),  apply_filters('spalisho_list_header', '') ) : array( 'global' => 'Global' );
             ?>
             <label for="<?php echo $this->prefix.'header_version' ?>">
-                <?php esc_html_e('Header Version', 'ova-framework'); ?>
+                <?php esc_html_e('Header Version', 'xp-framework'); ?>
             </label>
 
             <select name="<?php echo $this->prefix.'header_version' ?>" id="<?php echo $this->prefix.'header_version' ?>" class="postbox">
@@ -137,7 +137,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             $list_footer = apply_filters('spalisho_list_footer', '') != '' ? array_merge( array( 'global' => 'Global' ),  apply_filters('spalisho_list_footer', '') ) : array( 'global' => 'Global' );
             ?>
             <label for="<?php echo $this->prefix.'footer_version' ?>">
-                <?php esc_html_e('Footer Version', 'ova-framework'); ?>
+                <?php esc_html_e('Footer Version', 'xp-framework'); ?>
             </label>
 
             <select name="<?php echo $this->prefix.'footer_version' ?>" id="<?php echo $this->prefix.'footer_version' ?>" class="postbox">
@@ -157,7 +157,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             $layouts = apply_filters('spalisho_define_layout', '') != '' ? array_merge( array( 'global' => 'Global' ),  apply_filters('spalisho_define_layout', '') ) : array( 'global' => 'Global' );
             ?>
             <label for="<?php echo $this->prefix.'main_layout' ?>">
-                <?php esc_html_e('Main layout', 'ova-framework'); ?>
+                <?php esc_html_e('Main layout', 'xp-framework'); ?>
             </label>
 
             <select name="<?php echo $this->prefix.'main_layout' ?>" id="<?php echo $this->prefix.'main_layout' ?>" class="postbox">
@@ -177,7 +177,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             $wide_site = apply_filters('spalisho_define_wide_boxed', '') != '' ? array_merge( array( 'global' => 'Global' ),  apply_filters('spalisho_define_wide_boxed', '') ) : array( 'global' => 'Global' );
             ?>
             <label for="<?php echo $this->prefix.'wide_site' ?>">
-                <?php esc_html_e('Wide Site', 'ova-framework'); ?>
+                <?php esc_html_e('Wide Site', 'xp-framework'); ?>
             </label>
 
             <select name="<?php echo $this->prefix.'wide_site' ?>" id="<?php echo $this->prefix.'wide_site' ?>" class="postbox">
@@ -198,7 +198,7 @@ if( !class_exists('Spalisho_Metaboxes') ){
             $header_selected = get_post_meta( $post->ID, $this->prefix.'embed_media', true );
             ?>
             <label for="<?php echo $this->prefix.'embed_media' ?>">
-                <?php esc_html_e('Embed Video Link', 'ova-framework'); ?>
+                <?php esc_html_e('Embed Video Link', 'xp-framework'); ?>
             </label>
 
             <input type="text" name="<?php echo $this->prefix.'embed_media' ?>" value="<?php echo $header_selected; ?>" id="<?php echo $this->prefix.'embed_media' ?>" class="postbox" />
@@ -213,11 +213,11 @@ if( !class_exists('Spalisho_Metaboxes') ){
            wp_nonce_field( basename(__FILE__), 'gallery_meta_nonce' );
            $ids = get_post_meta($post->ID, $this->prefix.'gallery_id', true);
             ?>
-             <table class="form-table ova_metabox_gallery">
+             <table class="form-table xp_metabox_gallery">
                 <tr>
                     <td>
-                        <a class="gallery-add button" href="#" data-uploader-title="<?php esc_html_e( 'Add Images', 'ova-framework' ) ?>" data-uploader-button-text="<?php esc_html_e( 'Add Images', 'ova-framework' ) ?>">
-                            <?php esc_html_e( 'Add Images', 'ova-framework' ) ?>
+                        <a class="gallery-add button" href="#" data-uploader-title="<?php esc_html_e( 'Add Images', 'xp-framework' ) ?>" data-uploader-button-text="<?php esc_html_e( 'Add Images', 'xp-framework' ) ?>">
+                            <?php esc_html_e( 'Add Images', 'xp-framework' ) ?>
                         </a>
 
                         <ul id="gallery-metabox-list">
@@ -227,13 +227,13 @@ if( !class_exists('Spalisho_Metaboxes') ){
 
                                <img class="image-preview" src="<?php echo $image[0]; ?>">
 
-                               <a class="change-image button button-small" href="#" data-uploader-title="<?php esc_html_e( 'Change Image', 'ova-framework' ) ?>" data-uploader-button-text="<?php esc_html_e( 'Change Image', 'ova-framework' ) ?>" title="<?php esc_html_e( 'Delete image', 'ova-framework' ); ?>">
-                                    <?php esc_html_e( 'Change', 'ova-framework' ) ?>
+                               <a class="change-image button button-small" href="#" data-uploader-title="<?php esc_html_e( 'Change Image', 'xp-framework' ) ?>" data-uploader-button-text="<?php esc_html_e( 'Change Image', 'xp-framework' ) ?>" title="<?php esc_html_e( 'Delete image', 'xp-framework' ); ?>">
+                                    <?php esc_html_e( 'Change', 'xp-framework' ) ?>
                                 </a>
                                 <br>
                                <small>
-                                <a class="remove-image" href="#" title="<?php esc_html_e( 'Delete image', 'ova-framework' ); ?>">
-                                    <?php esc_html_e( 'Delete', 'ova-framework' ); ?>
+                                <a class="remove-image" href="#" title="<?php esc_html_e( 'Delete image', 'xp-framework' ); ?>">
+                                    <?php esc_html_e( 'Delete', 'xp-framework' ); ?>
                                 </a>
                                 </small>
                             </li>

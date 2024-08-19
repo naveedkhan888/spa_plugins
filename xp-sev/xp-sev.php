@@ -6,33 +6,33 @@ Description: Service
 Author: Xperttheme
 Version: 1.0.7
 Author URI: https://themeforest.net/user/xpertpoin8/portfolio
-Text Domain: ova-sev
+Text Domain: xp-sev
 Domain Path: /languages/
 */
 
 if ( !defined( 'ABSPATH' ) ) exit();
 
 
-if (!class_exists('OvaSev')) {
+if (!class_exists('XpSev')) {
 	
-	class OvaSev {
+	class XpSev {
 
 		function __construct(){
 
-			if (!defined('OVASEV_PLUGIN_FILE')) {
-                define( 'OVASEV_PLUGIN_FILE', __FILE__ );   
+			if (!defined('XPSEV_PLUGIN_FILE')) {
+                define( 'XPSEV_PLUGIN_FILE', __FILE__ );   
             }
 
-            if (!defined('OVASEV_PLUGIN_URI')) {
-                define( 'OVASEV_PLUGIN_URI', plugin_dir_url( __FILE__ ) );   
+            if (!defined('XPSEV_PLUGIN_URI')) {
+                define( 'XPSEV_PLUGIN_URI', plugin_dir_url( __FILE__ ) );   
             }
 
-            if (!defined('OVASEV_PLUGIN_PATH')) {
-                define( 'OVASEV_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );   
+            if (!defined('XPSEV_PLUGIN_PATH')) {
+                define( 'XPSEV_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );   
             }
 			
 
-			load_plugin_textdomain( 'ova-sev', false, basename( dirname( __FILE__ ) ) .'/languages' );
+			load_plugin_textdomain( 'xp-sev', false, basename( dirname( __FILE__ ) ) .'/languages' );
 
 			$this -> includes();
 			$this -> supports();
@@ -42,23 +42,23 @@ if (!class_exists('OvaSev')) {
 		function includes() {
 
 			// inc
-			require_once( OVASEV_PLUGIN_PATH.'inc/class-ova-custom-post-type.php' );
+			require_once( XPSEV_PLUGIN_PATH.'inc/class-xp-custom-post-type.php' );
 
-			require_once( OVASEV_PLUGIN_PATH.'inc/class-ova-get-data.php' );
+			require_once( XPSEV_PLUGIN_PATH.'inc/class-xp-get-data.php' );
 
-			require_once( OVASEV_PLUGIN_PATH.'inc/ova-core-functions.php' );
+			require_once( XPSEV_PLUGIN_PATH.'inc/xp-core-functions.php' );
 			
-			require_once( OVASEV_PLUGIN_PATH.'inc/class-ova-templates-loaders.php' );
+			require_once( XPSEV_PLUGIN_PATH.'inc/class-xp-templates-loaders.php' );
 
-			require_once( OVASEV_PLUGIN_PATH.'inc/class-ova-assets.php' );
+			require_once( XPSEV_PLUGIN_PATH.'inc/class-xp-assets.php' );
 
 
 			// admin
-			require_once( OVASEV_PLUGIN_PATH.'admin/class-ova-metabox.php' );
+			require_once( XPSEV_PLUGIN_PATH.'admin/class-xp-metabox.php' );
 
 
 			/* Customize */
-			require_once OVASEV_PLUGIN_PATH.'/inc/class-customize.php';
+			require_once XPSEV_PLUGIN_PATH.'/inc/class-customize.php';
 			
 
 		}
@@ -68,7 +68,7 @@ if (!class_exists('OvaSev')) {
 
 			/* Make Elementors */
 			if ( did_action( 'elementor/loaded' ) ) {
-				include OVASEV_PLUGIN_PATH.'elementor/class-ova-register-elementor.php';
+				include XPSEV_PLUGIN_PATH.'elementor/class-xp-register-elementor.php';
 			}
 
 		}
@@ -77,4 +77,4 @@ if (!class_exists('OvaSev')) {
 }
 
 
-return new OvaSev();
+return new XpSev();

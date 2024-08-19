@@ -15,7 +15,7 @@
 	}
     
     // content
-	$class_icon  = get_post_meta( $id, 'ova_sev_met_icon', true );
+	$class_icon  = get_post_meta( $id, 'xp_sev_met_icon', true );
 	$title       = get_the_title();
 	$description = get_the_excerpt();
 	$show_des    = isset($args['show_description']) ? $args['show_description'] : 'yes';
@@ -25,7 +25,7 @@
 ?>
 	
 
-    <div class="xp-service-box ova-service-box-template4">
+    <div class="xp-service-box xp-service-box-template4">
 
     	<span class="count">
 			<?php printf('%02s', $count); ?>

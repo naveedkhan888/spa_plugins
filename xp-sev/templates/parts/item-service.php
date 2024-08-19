@@ -21,10 +21,10 @@
     	$thumbnail   =  \Elementor\Utils::get_placeholder_image_src();
     }
 
-	$class_icon  = get_post_meta( $id, 'ova_sev_met_icon', true );
+	$class_icon  = get_post_meta( $id, 'xp_sev_met_icon', true );
 	$title       = get_the_title();
 	$description = get_the_excerpt();
-	$text_button = isset($args['text_button']) ? $args['text_button'] : esc_html__('Book Now','ova-sev');
+	$text_button = isset($args['text_button']) ? $args['text_button'] : esc_html__('Book Now','xp-sev');
 	$show_des    = isset($args['show_description']) ? $args['show_description'] : 'yes';
 
 	// background image
@@ -36,7 +36,7 @@
 
 ?>
 
-	<div class="xp-service-box ova-service-box-template1">
+	<div class="xp-service-box xp-service-box-template1">
 
 		<?php if ( $background_image != '' ) : ?> 
 		    <div class="mask" style="background-image: url(<?php echo esc_attr( $background_image ) ; ?>)"></div>

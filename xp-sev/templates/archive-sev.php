@@ -2,7 +2,7 @@
 
 get_header();
 
-$number_column = get_theme_mod( 'ova_sev_layout', 'three_column' );
+$number_column = get_theme_mod( 'xp_sev_layout', 'three_column' );
 
 ?>
 
@@ -15,7 +15,7 @@ $number_column = get_theme_mod( 'ova_sev_layout', 'three_column' );
 
 				<?php if( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
-                    <?php ovasev_get_template( 'parts/item-service.php' ); ?>
+                    <?php xpsev_get_template( 'parts/item-service.php' ); ?>
 
 				<?php endwhile; endif; wp_reset_postdata(); ?>
 
@@ -24,8 +24,8 @@ $number_column = get_theme_mod( 'ova_sev_layout', 'three_column' );
 			<?php 
 	    		$args = array(
 	                'type'      => 'list',
-	                'next_text' => '<i class="xpicon ovaicon-next"></i>',
-	                'prev_text' => '<i class="xpicon ovaicon-back"></i>',
+	                'next_text' => '<i class="xpicon xpicon-next"></i>',
+	                'prev_text' => '<i class="xpicon xpicon-back"></i>',
 	            );
 
 	            the_posts_pagination($args);
