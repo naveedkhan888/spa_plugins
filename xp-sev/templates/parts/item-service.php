@@ -76,7 +76,7 @@
 
 			<a class="book-button" href="<?php echo esc_url($link); ?>" <?php echo esc_attr($target); ?> title="<?php echo esc_attr( $title ); ?>">
 				<?php echo esc_html($text_button);?>
-				<i class="flaticon flaticon-right-arrow"></i>
+				<i class="webicon webicon-right-arrow"></i>
 			</a>
 	    </div>
 
