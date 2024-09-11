@@ -98,7 +98,8 @@ li.xp-megamenu ul.xp-mega-menu li.menu-item h5.title {
   display: inline-block;
   margin: 0 0 15px 0;
   padding-bottom: 5px;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: normal;
   line-height: 1.2;
   text-transform: uppercase;
 }
