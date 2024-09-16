@@ -60,7 +60,7 @@
 		    	</div>
 
 				<a class="book-button" href="<?php echo esc_url($link); ?>" <?php echo esc_attr($target); ?> title="<?php echo esc_attr( $title ); ?>">
-					<i aria-hidden="true" class="fas fa-arrow-right"></i>
+					<i aria-hidden="true" class="xpicon xpicon-next-4"></i>
 				</a>
 	    	</div>
 

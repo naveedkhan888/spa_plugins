@@ -349,7 +349,7 @@ class Xpsev_Elementor_Service_List extends Widget_Base {
 										<?php if ( $template == 'template1' ): ?>
 			                                <i class="xpicon xpicon-fast-forward"></i>
 			                            <?php else: ?>
-			                            	<i aria-hidden="true" class="fas fa-arrow-right"></i>
+			                            	<i aria-hidden="true" class="xpicon xpicon-next-4"></i>
 			                            <?php endif;?>
 		                            </div>
 								</a>
